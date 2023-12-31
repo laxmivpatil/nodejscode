@@ -1,16 +1,13 @@
-let a=10;
-let b=0;
+const express=require('express')
+const path=require('path')
 
 
+const app= express();
 
-let waitingData=new Promise((resolve,reject)=>{
-    setTimeout(()=>
-    {
-       
-       resolve(30)
-    },2000)
-})
-waitingData.then((data)=>
-{
-    console.log(a+data)
-})
+
+const publicpath=path.join(__dirname,'public')
+
+ app.use(express.static(publicpath))
+
+
+app.listen(4200)
